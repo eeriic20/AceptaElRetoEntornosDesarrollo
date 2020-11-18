@@ -1,34 +1,49 @@
 import java.util.Scanner;
 
-/**
- * 
- */
-
-/**
- * @author ericq
- * Programa para saber el número de losetas
- * 18/11/2020
- * Joan Peñarrocha Crespo
- * 1º DAM
- */
-
 public class P413_ClarasYOscuras {
 
-	/**
-	 * @param args
-	 * Saber el número de losetas
-	 */
-	
 	public static void main(String[] args) {
-		
-		//Añadimos el escaner
-		Scanner teclado = new Scanner(System.in);
-		
-		//Declaramos las variables
-		int oscuras, claras;
-		
-		//Cerramos el escaner
-		teclado.close();
+
+		Scanner s = new Scanner(System.in);
+
+		int casos;
+		int filas;
+		int columnas;
+		int blancas = 0;
+		int negras = 0;
+		double cantidad = 0;
+		double total;
+
+
+		casos = s.nextInt();
+
+		for(int i=0; i<casos; i++) {
+
+			filas = s.nextInt();
+			columnas = s.nextInt();
+
+			total = (double)filas * columnas;
+			cantidad = (double)total / 2;
+
+			blancas = (int)cantidad;
+			negras = (int)cantidad;
+
+			if(filas == 1 && columnas == 1) {
+
+				blancas = 1;
+				negras = 0;
+
+			} else if(total %2 != 0 ) {
+
+				blancas = (int)cantidad + 1;
+
+ 			}
+
+			System.out.print(blancas + " " + negras);
+			System.out.println();
+
+		}
+
 
 	}
 
